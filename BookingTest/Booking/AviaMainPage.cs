@@ -20,11 +20,11 @@ namespace BookingTest.Booking
 		}
 		public void ChangeAirport(string city = "Москва")
 		{
-			var aviaText = _driver.FindAndWaitElement(_textBoxCity, 3);
-			aviaText.Click();
-			var aviaTextVvod = _driver.FindAndWaitElement(_textBoxCityAirport, 3);
-			aviaTextVvod.SendKeys(city);
-			aviaTextVvod.SendKeys(Keys.Enter);
+			var cityField = _driver.FindAndWaitElement(_textBoxCity, 3);
+			cityField.Click();
+			var airportField = _driver.FindAndWaitElement(_textBoxCityAirport, 3);
+			airportField.SendKeys(city);
+			airportField.SendKeys(Keys.Enter);
 		}
 		public void ChangeDates(DateTime dateStart, DateTime dateFinish)
 		{

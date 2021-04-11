@@ -22,8 +22,8 @@ namespace BookingTest
 		{
 			MainPage mainPage = new MainPage(_driver);
 			mainPage.ChangeLanguage();
-			var actual = mainPage.SelectedLanguage;
-			Assert.That(actual, Does.Contain("aktuelle Sprache ist Deutsch"), "Language change error.");
+			var actualLanguage = mainPage.SelectedLanguage;
+			Assert.That(actualLanguage, Does.Contain("aktuelle Sprache ist Deutsch"), "Language change error.");
 		}
 
 		[Test]
@@ -37,8 +37,8 @@ namespace BookingTest
 			aviaMainPage.ChangeDates(startDate, finishDate);
 			FlightSearchResult flightsPage = aviaMainPage.FlightsClick();
 			flightsPage.ByTicket();
-			bool actual = flightsPage.CheckPurchase;
-			Assert.That(actual, "Check purchase error.");
+			bool actualTicket = flightsPage.CheckPurchase;
+			Assert.That(actualTicket, "Check purchase error.");
 		}
 
 		[Test]
@@ -47,8 +47,8 @@ namespace BookingTest
 			MainPage mainPage = new MainPage(_driver);
 			LoginPage loginPage = mainPage.SingInButtonClick();
 			loginPage.UserAuthClick();
-			var actual = mainPage.UserAuthText;
-			Assert.That(actual, Does.Contain("Genius"), "Auth error.");
+			var actualUser = mainPage.UserAuthText;
+			Assert.That(actualUser, Does.Contain("Genius"), "Auth error.");
 		}
 
 		[Test]
@@ -59,8 +59,8 @@ namespace BookingTest
 			mainPage.ChangeDate();
 			mainPage.ChangeNumberChildren();
 			SearchResultPage searchResult = mainPage.SearchClick();
-			var actual = searchResult.Filter;
-			Assert.That(actual, Does.Contain("1 ребенок"), "Filter error.");
+			var actualFilter = searchResult.Filter;
+			Assert.That(actualFilter, Does.Contain("1 ребенок"), "Filter error.");
 		}
 
 		[TearDown]
